@@ -1,6 +1,6 @@
 <img width="200" height="200" src="assets/particle-life.svg" alt="Particle Light" align="right" />
 
-This is a fork of the fnky/particle-life repository to demonstrate how Git works, and to potentially hack in a zoom feature.
+This is a fork of the fnky/particle-life repository to demonstrate to students how GitHub works. A zoom slider has been added to the parameters menu, but framerate suffers as a result.
 
 # Particle Life
 
