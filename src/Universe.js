@@ -41,7 +41,8 @@ class Universe {
 		maxRLower,
 		maxRUpper,
 		friction,
-		flatForce
+		flatForce,
+		zoom
 	) {
 		this.attractMean = attractMean;
 		this.attractStd = attractStd;
@@ -51,6 +52,7 @@ class Universe {
 		this.maxRUpper = maxRUpper;
 		this.friction = friction;
 		this.flatForce = flatForce;
+		this.zoom = zoom;
 		this.setRandomTypes();
 		this.setRandomParticles();
 	}
