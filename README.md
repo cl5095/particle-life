@@ -38,7 +38,7 @@ A JavaScript conversion, based on [Particle-Life](https://github.com/HackerPoet/
 
 Contributions are very welcome. If you've found a bug create an [issue](https://github.com/fnky/particle-life/issues "Go to Issues") or even better, a [pull request](https://github.com/fnky/particle-life/pulls "Go to Pull Requests").
 
-[demo]: https://fnky.github.com/particle-life
+[demo]: https://cl5095.github.io/particle-life/index.html
 
 ## Credits
 
