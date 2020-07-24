@@ -1,5 +1,7 @@
 <img width="200" height="200" src="assets/particle-life.svg" alt="Particle Light" align="right" />
 
+This is a fork of the fnky/particle-life repository to demonstrate how Git works, and to potentially hack in a zoom feature.
+
 # Particle Life
 
 A game of life using particles, instead of cells.
