@@ -20,43 +20,43 @@ const settings = {
 const presets = {
 	Balanced: {
 		population: [9, 400],
-		seed: [-0.02, 0.06, 0.0, 20.0, 20.0, 70.0, 0.05, false]
+		seed: [-0.02, 0.06, 0.0, 20.0, 20.0, 70.0, 0.05, false, 1]
 	},
 	Chaos: {
-		population: [6, 400],
-		seed: [0.02, 0.04, 0.0, 30.0, 30.0, 100.0, 0.01, false]
+		population: [6, 4000],
+		seed: [0.02, 0.04, 0.0, 30.0, 30.0, 100.0, 0.01, false, 4]
 	},
 	Diversity: {
 		population: [12, 400],
-		seed: [-0.01, 0.04, 0.0, 20.0, 10.0, 60.0, 0.05, true]
+		seed: [-0.01, 0.04, 0.0, 20.0, 10.0, 60.0, 0.05, true, 0.5]
 	},
 	Frictionless: {
-		population: [6, 300],
-		seed: [0.01, 0.005, 10.0, 10.0, 10.0, 60.0, 0.0, true]
+		population: [6, 600],
+		seed: [0.01, 0.005, 10.0, 10.0, 10.0, 60.0, 0.0, true, 2]
 	},
 	Gliders: {
-		population: [6, 400],
-		seed: [0.0, 0.06, 0.0, 20.0, 10.0, 50.0, 0.1, true]
+		population: [6, 1200],
+		seed: [0.0, 0.06, 0.0, 20.0, 10.0, 50.0, 0.1, true, 0.3]
 	},
 	Homogeneity: {
 		population: [4, 400],
-		seed: [0.0, 0.04, 10.0, 10.0, 10.0, 80.0, 0.05, true]
+		seed: [0.0, 0.04, 10.0, 10.0, 10.0, 80.0, 0.05, true, 1]
 	},
 	'Large Clusters': {
-		population: [6, 400],
-		seed: [0.025, 0.02, 0.0, 30.0, 30.0, 100.0, 0.2, false]
+		population: [6, 8000],
+		seed: [0.025, 0.02, 0.0, 30.0, 30.0, 100.0, 0.2, false, 0.2]
 	},
 	'Medium Clusters': {
 		population: [6, 400],
-		seed: [0.02, 0.05, 0.0, 20.0, 20.0, 50.0, 0.05, false]
+		seed: [0.02, 0.05, 0.0, 20.0, 20.0, 50.0, 0.05, false, 1]
 	},
 	Quiescence: {
 		population: [6, 300],
-		seed: [-0.02, 0.1, 10.0, 20.0, 20.0, 60.0, 0.2, false]
+		seed: [-0.02, 0.1, 10.0, 20.0, 20.0, 60.0, 0.2, false, 1]
 	},
 	'Small Clusters': {
-		population: [6, 600],
-		seed: [-0.005, 0.01, 10.0, 10.0, 20.0, 50.0, 0.01, false]
+		population: [6, 300],
+		seed: [-0.005, 0.01, 10.0, 10.0, 20.0, 50.0, 0.01, false, 2]
 	}
 };
 
@@ -71,7 +71,8 @@ function getSettingsForPreset(preset) {
 		maxRLower,
 		maxRUpper,
 		friction,
-		flatForce
+		flatForce,
+		zoom
 	] = seed;
 
 	return {
@@ -84,7 +85,8 @@ function getSettingsForPreset(preset) {
 		maxRLower,
 		maxRUpper,
 		friction,
-		flatForce
+		flatForce,
+		zoom
 	};
 }
 
@@ -116,7 +118,8 @@ const sketch = ({ width, height }) => {
 		universeSettings.maxRLower,
 		universeSettings.maxRUpper,
 		universeSettings.friction,
-		universeSettings.flatForce
+		universeSettings.flatForce,
+		universeSettings.zoom
 	);
 
 	const onUniverseSettingsChange = () => {
@@ -132,7 +135,8 @@ const sketch = ({ width, height }) => {
 			universeSettings.maxRLower,
 			universeSettings.maxRUpper,
 			universeSettings.friction,
-			universeSettings.flatForce
+			universeSettings.flatForce,
+			universeSettings.zoom
 		);
 	};
 
@@ -165,6 +169,9 @@ const sketch = ({ width, height }) => {
 		.onFinishChange(onUniverseSettingsChange);
 	universeFolder
 		.add(universeSettings, 'friction', 0, 1)
+		.onFinishChange(onUniverseSettingsChange);
+	universeFolder
+		.add(universeSettings, 'zoom', 0.1, 50)
 		.onFinishChange(onUniverseSettingsChange);
 	universeFolder
 		.add(universeSettings, 'flatForce')
